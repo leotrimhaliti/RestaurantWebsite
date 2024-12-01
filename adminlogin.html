@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Welcome Admin</h2>
+      <form id="loginForm">
+        <label for="email">Username</label>
+        <input type="text" id="username" name="email" placeholder="Enter your Username">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password">
+        <button type="submit" class="button">Log In</button>
+      </form>
+      <p id="error-message" class="error-message" style="color: red; margin-top: 10px;"></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").onsubmit = function(event) {
+      event.preventDefault();
+      var username = document.getElementById("username").value;
+      var pw = document.getElementById("password").value;
+
+      if (username === "admin" && pw === "123") {
+        window.location.href = 'dashboard.html';
+      } else {
+        document.getElementById('error-message').textContent = 'Wrong username or password. Please try again.';
+      }
+    }
+  </script>
+</body>
+</html>
